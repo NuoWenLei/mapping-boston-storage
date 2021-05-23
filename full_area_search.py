@@ -189,7 +189,10 @@ def get_detailed_compounds(compounds, detailed_buildings):
 		updated_compound['avg_prices(total)'] = updated_compound['sum_of_prices(total)'] / updated_compound['units_on_sale']
 		updated_compound['avg_area(sq_meters)'] = updated_compound['sum_of_area(sq_meters)'] / updated_compound['units_on_sale']
 		updated_compound['avg_floors'] = updated_compound['sum_of_floors'] / updated_compound['units_on_sale']
+	return full_rank_attr(updated_compounds_v1)
 
+
+def full_rank_attr(updated_compounds_v1):
 	for k in ['year_of_construction', 'number_of_buildings', 'number_of_rooms', 'avg_prices($/space)', 'avg_prices(total)', 'avg_area(sq_meters)', 'avg_floors']:
 		updated_compounds_v1 = add_rank_attr(updated_compounds_v1, k)
 		updated_compounds_v1 = label_outliers(updated_compounds_v1, k)
